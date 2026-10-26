@@ -5,6 +5,9 @@ app = Flask(__name__)
 # In-memory storage for notes (a simple Python dictionary)
 # Key: note id (int or str), Value: note text (str)
 notes = {}
+@app.route("/", methods=["GET"])
+def home():
+    return jsonify({"message": "Welcome to my Automated Notes API!"}), 200
 
 
 @app.route("/health", methods=["GET"])
